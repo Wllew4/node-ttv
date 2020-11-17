@@ -1,0 +1,12 @@
+{
+  "name": "node-ttv",
+  "version": "1.0.0",
+  "description": "A Node.js wrapper for Twitch.tv's API.",
+  "main": "node-ttv.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Wllew4",
+  "license": "ISC"
+}
