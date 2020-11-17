@@ -9,7 +9,7 @@ exports.Twitch =  {
     },
     
     ads: {
-        playAd: async (bodyParams) => {
+        startCommercial: async (bodyParams) => {
             apiPost("/helix/channels/commercial", {}, bodyParams);
         }
     },
