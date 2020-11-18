@@ -1,6 +1,23 @@
 const {apiPost, apiGet, apiDelete, apiPatch, apiPut} = require("./util/api");
+const {Post} = require("./util/web-requests/post");
 
 exports.Twitch =  {
+
+    getRefreshToken: async (AUTH_CODE, CLIENT_ID, SECRET) => {
+        var url = "/oauth2/token?grant_type=authorization_code&redirect_uri=http://localhost/"
+            + "&client_id=" + CLIENT_ID
+            + "&client_secret=" + SECRET
+            + "&code=" + AUTH_CODE;
+        try {
+            const res = await Post("id.twitch.tv",
+            url);
+            const token = JSON.parse(res).refresh_token;
+            console.log(token);
+            return token;
+        } catch (err) {
+            console.log(err);
+        }
+    },
 
     init: async (REFRESH_TOKEN, CLIENT_ID, SECRET) => {
         global.REFRESH_TOKEN = REFRESH_TOKEN;
