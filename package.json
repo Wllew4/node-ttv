@@ -8,6 +8,5 @@
   },
   "keywords": ["twitch", "twitch.tv", "api", "wrapper", "ttv", "livestreaming", "streaming"],
   "author": "wllew4",
-  "license": "MIT License",
-  "publishConfig": { "registry": "https://npm.pkg.github.com/" }
+  "license": "MIT License"
 }
