@@ -27,28 +27,28 @@ exports.Twitch =  {
     
     ads: {
         startCommercial: async (bodyParams) => {
-            apiPost("/helix/channels/commercial", {}, bodyParams);
+            return apiPost("/helix/channels/commercial", {}, bodyParams);
         }
     },
 
     analytics: {
         getExtensionAnalytics: async (queryParams) => {
-            apiGet("/helix/analytics/extensions", queryParams);
+            return apiGet("/helix/analytics/extensions", queryParams);
         },
         getGameAnalytics: async (queryParams) => {
-            apiGet("/helix/analytics/games", queryParams);
+            return apiGet("/helix/analytics/games", queryParams);
         }
     },
 
     bits: {
         getBitsLeaderboard: async (queryParams) => {
-            apiGet("/helix/bits/leaderboard", queryParams);
+            return apiGet("/helix/bits/leaderboard", queryParams);
         },
         getCheermotes: async (queryParams) => {
-            apiGet("/helix/bits/cheermotes", queryParams);
+            return apiGet("/helix/bits/cheermotes", queryParams);
         },
         getExtensionTransactions: async (queryParams) => {
-            apiGet("/helix/extensions/transactions", queryParams);
+            return apiGet("/helix/extensions/transactions", queryParams);
         }
     },
 
