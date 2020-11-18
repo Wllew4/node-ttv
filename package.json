@@ -1,12 +1,12 @@
 {
   "name": "node-ttv",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "A Node.js wrapper for Twitch.tv's helix API.",
   "main": "node-ttv.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [],
+  "keywords": ["twitch", "twitch.tv", "api", "wrapper", "ttv", "livestreaming", "streaming"],
   "author": "wllew4",
   "license": "ISC"
 }
