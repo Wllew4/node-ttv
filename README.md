@@ -1,7 +1,7 @@
 # node-ttv
 A Node.js wrapper for Twitch.tv's helix API.
 This package can help developers exchange data with Twitch without the headache of web requests.
-As of right now (v1.0.1), this package is very new, and not all features have been tested, but they *should* work.
+As of right now (v1.0.3), this package is very new, and not all features have been tested, but they *should* work.
 
 ## Sample Code
 ```js

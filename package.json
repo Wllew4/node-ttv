@@ -1,6 +1,6 @@
 {
   "name": "node-ttv",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "A Node.js wrapper for Twitch.tv's helix API.",
   "main": "node-ttv.js",
   "scripts": {
@@ -8,5 +8,6 @@
   },
   "keywords": ["twitch", "twitch.tv", "api", "wrapper", "ttv", "livestreaming", "streaming"],
   "author": "wllew4",
-  "license": "ISC"
+  "license": "MIT License",
+  "publishConfig": { "registry": "https://npm.pkg.github.com/" }
 }
