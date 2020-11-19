@@ -189,7 +189,7 @@ exports.Twitch =  {
             return apiGet("/helix/users", queryParams);
         },
         getUsersFollows: async (queryParams) => {
-            return apiGet("/users/follows", queryParams);
+            return apiGet("/helix/users/follows", queryParams);
         },
         updateUser: async (queryParams) => {
             return apiPut("/helix/users", queryParams, {});
