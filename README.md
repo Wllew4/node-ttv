@@ -1,3 +1,5 @@
+⚠️This project is no longer actively maintained. Pull requests are welcome and invited if necessary.⚠️
+
 # node-ttv
 A Node.js wrapper for Twitch.tv's helix API.
 This package can help developers exchange data with Twitch without the headache of web requests.
