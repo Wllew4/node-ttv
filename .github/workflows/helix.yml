@@ -13,4 +13,4 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: test helix api
-      run: npm run tsc && node ./tests/test.js
+      run: npm i && npm run tsc && node ./tests/test.js
