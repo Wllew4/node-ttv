@@ -8,7 +8,7 @@ if(process.env.GITHUB_ACTIONS)
 {
 	client_id	= process.argv[2]
 	// secret 		= process.argv[3]
-	secret = 'bad key'
+	secret = 'badkey'
 }
 else
 {
