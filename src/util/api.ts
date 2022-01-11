@@ -1,26 +1,27 @@
 const {Get} = require("./web-requests/get");
-const {Post} = require("./web-requests/post");
+// const {Post} = require("./web-requests/post");
 const {Patch} = require("./web-requests/patch");
 const {Delete} = require("./web-requests/delete");
 const {getOauth} = require("./getOauth");
+const {readFileSync} = require('fs')
 
-exports.apiGet = async (path, queryParams) => {
+exports.apiGet = async (path: string, queryParams: any) => {
     let reqPath = path + "?";
 
-    for(key in queryParams){
+    for(let key in queryParams){
         if(queryParams[key] != ""){
             reqPath += "&" + key + "=" + queryParams[key];
         }
     }
 
-    TOKEN = await getOauth();
+    // TOKEN = await getOauth();
     try {
         const response = await Get(
             "api.twitch.tv",
             reqPath,
             {
-                "Authorization": "Bearer " + TOKEN,
-                "Client-ID": CLIENT_ID
+                "Authorization": "Bearer " + readFileSync('./tests/.oauth').toString(),
+                "Client-ID": globalThis.CLIENT_ID
             }
         );
     
@@ -31,16 +32,16 @@ exports.apiGet = async (path, queryParams) => {
     }
 };
 
-exports.apiPost = async (path, queryParams, bodyParams) => {
+exports.apiPost = async (path: string, queryParams: any, bodyParams: any) => {
     let reqPath = path + "?";
 
-    for(key in queryParams){
+    for(let key in queryParams){
         if(queryParams[key] != ""){
             reqPath += "&" + key + "=" + queryParams[key];
         }
     }
 
-    TOKEN = await getOauth();
+    let TOKEN = await getOauth();
     try {
         const response = await Post(
             "api.twitch.tv",
@@ -60,16 +61,16 @@ exports.apiPost = async (path, queryParams, bodyParams) => {
     }
 };
 
-exports.apiPatch = async (path, queryParams, bodyParams) => {
+exports.apiPatch = async (path: string, queryParams: any, bodyParams: any) => {
     let reqPath = path + "?";
 
-    for(key in queryParams){
+    for(let key in queryParams){
         if(queryParams[key] != ""){
             reqPath += "&" + key + "=" + queryParams[key];
         }
     }
 
-    TOKEN = await getOauth();
+    let TOKEN = await getOauth();
     try {
         const response = await Patch(
             "api.twitch.tv",
@@ -89,16 +90,16 @@ exports.apiPatch = async (path, queryParams, bodyParams) => {
     }
 };
 
-exports.apiPut = async (path, queryParams, bodyParams) => {
+exports.apiPut = async (path: string, queryParams: any, bodyParams: any) => {
     let reqPath = path + "?";
 
-    for(key in queryParams){
+    for(let key in queryParams){
         if(queryParams[key] != ""){
             reqPath += "&" + key + "=" + queryParams[key];
         }
     }
 
-    TOKEN = await getOauth();
+    let TOKEN = await getOauth();
     try {
         const response = await Post(
             "api.twitch.tv",
@@ -118,16 +119,16 @@ exports.apiPut = async (path, queryParams, bodyParams) => {
     }
 };
 
-exports.apiDelete = async (path, queryParams) => {
+exports.apiDelete = async (path: string, queryParams: any) => {
     let reqPath = path + "?";
 
-    for(key in queryParams){
+    for(let key in queryParams){
         if(queryParams[key] != ""){
             reqPath += "&" + key + "=" + queryParams[key];
         }
     }
 
-    TOKEN = await getOauth();
+    let TOKEN = await getOauth();
     try {
         const response = await Delete(
             "api.twitch.tv",

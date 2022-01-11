@@ -1,20 +1,20 @@
-const https = require("https");
+// const https = require("https");
 
-exports.Delete = (hostname, path, headers) => {
+exports.Patch = (hostname: string, path: string, postData: any, headers: any) => {
     return new Promise((resolve, reject) => {
         const options = {
-            method: "DELETE",
+            method: "PATCH",
             hostname,
             path,
             port: 443,
             headers
         };
 
-        const req = https.request(options, res => {
+        const req = https.request(options, (res: any) => {
             res.setEncoding("utf8");
             let returnData = "";
 
-            res.on('data', chunk => {
+            res.on('data', (chunk: any) => {
                 returnData += chunk;
             });
 
@@ -27,10 +27,14 @@ exports.Delete = (hostname, path, headers) => {
                 }
             });
 
-            res.on('error', err => {
+            res.on('error', (err: any) => {
                 reject(err);
             });
         });
+
+        if(postData){
+            req.write(postData);
+        }
 
         req.end();
     });

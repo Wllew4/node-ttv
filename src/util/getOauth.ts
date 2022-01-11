@@ -14,7 +14,7 @@ exports.getOauth = async () => {
     );
     const json = JSON.parse(response);
     
-    OAUTH = json.access_token;
+    let OAUTH = json.access_token;
 
     return OAUTH;
 }
