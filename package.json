@@ -5,7 +5,8 @@
   "main": "dist/node-ttv.js",
   "scripts": {
     "tsc": "tsc",
-    "test": "echo \"Error: no test specified\" && exit 1"
+	"prepublish": "tsc",
+    "test": "node ./tests/test.js"
   },
   "keywords": [
     "twitch",
