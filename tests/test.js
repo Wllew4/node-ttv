@@ -4,15 +4,16 @@ const { readFileSync } = require('fs')
 let secret;
 let client_id;
 
-if(!process.env.GITHUB_ACTIONS)
+if(process.env.GITHUB_ACTIONS)
 {
-	client_id	= readFileSync('./tests/.client_id').toString()
-	secret 		= readFileSync('./tests/.secret')	.toString()
+	client_id	= process.argv[2]
+	// secret 		= process.argv[3]
+	secret = 'bad key'
 }
 else
 {
-	client_id	= process.argv[2]
-	secret 		= process.argv[3]
+	client_id	= readFileSync('./tests/.client_id').toString()
+	secret 		= readFileSync('./tests/.secret')	.toString()
 }
 
 const t = new Twitch(client_id, secret)
