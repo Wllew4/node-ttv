@@ -1,8 +1,19 @@
 const Twitch = require('../').default
 const { readFileSync } = require('fs')
 
-const secret 	= readFileSync('./tests/.secret')	.toString()
-const client_id = readFileSync('./tests/.client_id').toString()
+let secret;
+let client_id;
+
+if(!process.env.GITHUB_ACTIONS)
+{
+	client_id	= readFileSync('./tests/.client_id').toString()
+	secret 		= readFileSync('./tests/.secret')	.toString()
+}
+else
+{
+	client_id	= process.argv[2]
+	secret 		= process.argv[3]
+}
 
 const t = new Twitch(client_id, secret)
 
