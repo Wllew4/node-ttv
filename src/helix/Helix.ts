@@ -2,14 +2,14 @@ import ApiCalls from './ApiCalls'
 
 export default class Helix
 {
-	CLIENT_ID: string;
-	SECRET: string;
-	apiCalls: ApiCalls;
+	// private CLIENT_ID: string;
+	// private SECRET: string;
+	private apiCalls: ApiCalls;
 
 	constructor(CLIENT_ID: string, SECRET: string)
 	{
-		this.CLIENT_ID = CLIENT_ID;
-		this.SECRET = SECRET;
+		// this.CLIENT_ID = CLIENT_ID;
+		// this.SECRET = SECRET;
 		this.apiCalls = new ApiCalls(CLIENT_ID, SECRET);
 	}
 

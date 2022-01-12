@@ -7,8 +7,7 @@ let client_id;
 if(process.env.GITHUB_ACTIONS)
 {
 	client_id	= process.argv[2]
-	// secret 		= process.argv[3]
-	secret = 'badkey'
+	secret 		= process.argv[3]
 }
 else
 {

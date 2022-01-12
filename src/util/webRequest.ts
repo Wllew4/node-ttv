@@ -1,21 +1,19 @@
 import https from 'https'
 
 export {
-	Delete,
-	Get,
-	Patch,
-	Post
+	webRequest
 }
 
-enum Method
+export enum Method
 {
-	DELETE = "DELETE",
 	GET = "GET",
+	POST = "POST",
+	PUT = "PUT",
 	PATCH = "PATCH",
-	POST = "POST"
+	DELETE = "DELETE"
 }
 
-function webRequest(hostname: string, path: string, postData: any, headers: any, method: Method): Promise<string>
+async function webRequest(hostname: string, path: string, postData: any, headers: any, method: Method): Promise<string>
 {
     return new Promise((resolve, reject) =>
 	{
@@ -63,24 +61,4 @@ function webRequest(hostname: string, path: string, postData: any, headers: any,
 
         req.end();
     });
-}
-
-function Delete(hostname: string, path: string, headers: any): Promise<string>
-{
-	return webRequest(hostname, path, null, headers, Method.DELETE)
-}
-
-function Get(hostname: string, path: string, headers: any): Promise<string>
-{
-	return webRequest(hostname, path, null, headers, Method.GET)
-}
-
-function Patch(hostname: string, path: string, postData: any, headers: any): Promise<string>
-{
-	return webRequest(hostname, path, postData, headers, Method.PATCH)
-}
-
-function Post(hostname: string, path: string, postData: any, headers: any): Promise<string>
-{
-	return webRequest(hostname, path, postData, headers, Method.POST)
 }
