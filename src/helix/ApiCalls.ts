@@ -12,8 +12,20 @@ export default class ApiCalls
 		this.oauth = oauth;
 	}
 
-	async apiCall(path: string, queryParams: any, bodyParams: any, method: Method): Promise<any>
+	private removeUndefined(object: any)
 	{
+		for(const key in object)
+		{
+			if(typeof object[key] === 'undefined')
+				delete object[key]
+		}
+	}
+
+	async apiCall(token: string|null, path: string, queryParams: any, bodyParams: any, method: Method): Promise<any>
+	{
+		this.removeUndefined(queryParams)
+		this.removeUndefined(bodyParams)
+
 		let reqPath = path + "?";
 	
 		for(let key in queryParams){
@@ -28,7 +40,7 @@ export default class ApiCalls
 				reqPath,
 				JSON.stringify(bodyParams),
 				{
-					"Authorization": "Bearer " + await this.oauth.appAccessToken(),
+					"Authorization": "Bearer " + (token == null ? await this.oauth.appAccessToken() : token),
 					"Client-ID": this.oauth.CLIENT_ID,
 					"Content-Type": "application/json"
 				},
@@ -42,28 +54,28 @@ export default class ApiCalls
 		}
 	}
 
-	async apiGet(path: string, queryParams: any)
+	async apiGet(token: string|null, path: string, queryParams: any)
 	{
-		return this.apiCall(path, queryParams, null, Method.GET)
+		return this.apiCall(token, path, queryParams, null, Method.GET)
 	}
 
-	async apiPost(path: string, queryParams: any, bodyParams: any)
+	async apiPost(token: string|null, path: string, queryParams: any, bodyParams: any)
 	{
-		return this.apiCall(path, queryParams, bodyParams, Method.POST)
+		return this.apiCall(token, path, queryParams, bodyParams, Method.POST)
 	}
 
-	async apiPut(path: string, queryParams: any, bodyParams: any)
+	async apiPut(token: string|null, path: string, queryParams: any, bodyParams: any)
 	{
-		return this.apiCall(path, queryParams, bodyParams, Method.PUT)
+		return this.apiCall(token, path, queryParams, bodyParams, Method.PUT)
 	}
 
-	async apiPatch(path: string, queryParams: any, bodyParams: any)
+	async apiPatch(token: string|null, path: string, queryParams: any, bodyParams: any)
 	{
-		return this.apiCall(path, queryParams, bodyParams, Method.PATCH)
+		return this.apiCall(token, path, queryParams, bodyParams, Method.PATCH)
 	}
 
-	async apiDelete(path: string, queryParams: any)
+	async apiDelete(token: string|null, path: string, queryParams: any)
 	{
-		return this.apiCall(path, queryParams, null, Method.DELETE)
+		return this.apiCall(token, path, queryParams, null, Method.DELETE)
 	}
 }

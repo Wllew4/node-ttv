@@ -125,7 +125,7 @@ export default class OAuth
 		force_verify: boolean,
 		state: string): string
 	{
-		return "id.twitch.tv"
+		return "https://id.twitch.tv"
 			+ "/oauth2/authorize"
 			+ "?response_type=" + response_type
 			+ "&client_id=" + clientID

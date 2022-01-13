@@ -15,50 +15,50 @@ export enum Method
 
 async function webRequest(hostname: string, path: string, postData: any, headers: any, method: Method): Promise<string>
 {
-    return new Promise((resolve, reject) =>
+	return new Promise((resolve, reject) =>
 	{
-        const options =
+		const options =
 		{
-            method: method,
-            hostname,
-            path,
-            port: 443,
-            headers
-        };
+			method: method,
+			hostname,
+			path,
+			port: 443,
+			headers
+		};
 
-        const req = https.request(options, (res: any) =>
+		const req = https.request(options, (res: any) =>
 		{
-            res.setEncoding("utf8");
-            let returnData = "";
+			res.setEncoding("utf8");
+			let returnData = "";
 
-            res.on('data', (chunk: any) =>
+			res.on('data', (chunk: any) =>
 			{
-                returnData += chunk;
-            });
+				returnData += chunk;
+			});
 
-            res.on('end', () =>
+			res.on('end', () =>
 			{
-                if( res.statusCode < 200 || res.statusCode >= 300)
+				if( res.statusCode < 200 || res.statusCode >= 300)
 				{
-                    reject(returnData);
-                }
-                else
+					reject(returnData);
+				}
+				else
 				{
-                    resolve(returnData);
-                }
-            });
+					resolve(returnData);
+				}
+			});
 
-            res.on('error', (err: any) =>
+			res.on('error', (err: any) =>
 			{
-                reject(err);
-            });
-        });
+				reject(err);
+			});
+		});
 
-        if(postData)
+		if(postData)
 		{
-            req.write(postData);
-        }
+			req.write(postData);
+		}
 
-        req.end();
-    });
+		req.end();
+	});
 }
