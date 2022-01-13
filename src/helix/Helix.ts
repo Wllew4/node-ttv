@@ -1,10 +1,17 @@
 import OAuth from '../authentication/OAuth';
 import ApiCalls from './ApiCalls'
 
+/**
+ * Interact with Twitch.tv's Helix API
+ */
 export default class Helix
 {
 	private apiCalls: ApiCalls;
 
+	/**
+	 * Interact with Twitch.tv's Helix API
+	 * @param oauth An OAuth handle for application credentials
+	 */
 	constructor(oauth: OAuth)
 	{
 		this.apiCalls = new ApiCalls(oauth);

@@ -2,23 +2,45 @@ import { webRequest, Method } from '../util/webRequest'
 
 import Scopes from './Scopes'
 
+/**
+ * Used to distinguish implicit and authorization OAuth flows
+ */
 enum RESPONSE_TYPE
 {
 	token	= "token",
 	code	= "code"
 }
 
+/**
+ * Handle your application's OAuth 2.0 credentials
+ */
 export default class OAuth
 {
+	/**
+	 * Your application's client id
+	 */
 	readonly CLIENT_ID: string;
+	/**
+	 * Your application's secret
+	 */
 	readonly SECRET: string;
 
+	/**
+	 * Create a new handle for OAuth 2.0 credentials
+	 * @param clientID Your application's client id
+	 * @param secret Your application's secret
+	 */
 	constructor(clientID: string, secret: string)
 	{
 		this.CLIENT_ID = clientID;
 		this.SECRET = secret;
 	}
-	
+
+	/**
+	 * Fetch your app's App Access Token.
+	 * Used for queries that are not user-specific.
+	 * @returns Your app's App Access Token
+	 */
 	async appAccessToken (): Promise<string>
 	{
 		let path = "/oauth2/token"
@@ -37,6 +59,11 @@ export default class OAuth
 		return JSON.parse(response).access_token;
 	}
 
+	/**
+	 * OAuth implicit code flow link
+	 * @params See Twitch.tv's documentation here: https://dev.twitch.tv/docs/authentication/getting-tokens-oauth
+	 * @returns A link to give your users for authentication
+	 */
 	implicitUserAccessToken(
 		redirectURI: string,
 		scopes: Scopes[],
@@ -46,6 +73,11 @@ export default class OAuth
 		return OAuth.getUserToken(this.CLIENT_ID, RESPONSE_TYPE.token, redirectURI, scopes, force_verify, state);
 	}
 	
+	/**
+	 * OAuth authorization code flow link
+	 * @params See Twitch.tv's documentation here: https://dev.twitch.tv/docs/authentication/getting-tokens-oauth
+	 * @returns A link to give your users for authentication
+	 */
 	authorizationUserAccessToken(
 		redirectURI: string,
 		scopes: Scopes[],
@@ -55,6 +87,11 @@ export default class OAuth
 		return OAuth.getUserToken(this.CLIENT_ID, RESPONSE_TYPE.code, redirectURI, scopes, force_verify, state);
 	}
 
+	/**
+	 * OAuth implicit code flow link
+	 * @params See Twitch.tv's documentation here: https://dev.twitch.tv/docs/authentication/getting-tokens-oauth
+	 * @returns A link to give your users for authentication
+	 */
 	static implicitUserAccessToken(
 		clientID: string,
 		redirectURI: string,
@@ -65,6 +102,11 @@ export default class OAuth
 		return OAuth.getUserToken(clientID, RESPONSE_TYPE.token, redirectURI, scopes, force_verify, state);
 	}
 
+	/**
+	 * OAuth authorization code flow link
+	 * @params See Twitch.tv's documentation here: https://dev.twitch.tv/docs/authentication/getting-tokens-oauth
+	 * @returns A link to give your users for authentication
+	 */
 	static authorizationUserAccessToken(
 		clientID: string,
 		redirectURI: string,

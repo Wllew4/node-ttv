@@ -1,3 +1,7 @@
+/**
+ * Scopes for user authenticated apps.
+ * Find more info on Twitch.tv's documentation: https://dev.twitch.tv/docs/authentication#scopes
+ */
 enum Scopes
 {
 	ANALYTICS_READ_EXTENTSIONS 			= "analytics:read:extensions",
