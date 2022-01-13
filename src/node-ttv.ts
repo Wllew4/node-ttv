@@ -1,15 +1,21 @@
-import Helix from "./helix/Helix";
+import OAuth	from "./authentication/OAuth";
+import Scopes	from "./authentication/Scopes";
+import Helix	from "./helix/Helix";
 
 export default class Twitch
 {
-	private CLIENT_ID: string;
-	private SECRET: string;
 	helix: Helix;
+	oauth: OAuth;
 
 	constructor(CLIENT_ID: string, SECRET: string)
 	{
-        this.CLIENT_ID = CLIENT_ID;
-        this.SECRET = SECRET;
-		this.helix = new Helix(this.CLIENT_ID, this.SECRET);
+		this.oauth = new OAuth(CLIENT_ID, SECRET);
+		this.helix = new Helix(this.oauth);
     }
+};
+
+export {
+	Twitch,
+	OAuth,
+	Scopes
 };

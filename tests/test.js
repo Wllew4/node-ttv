@@ -1,4 +1,5 @@
-const Twitch = require('../').default
+const {Twitch, OAuth, Scopes} = require('../')
+
 const { readFileSync } = require('fs')
 
 let secret;
@@ -17,4 +18,7 @@ else
 
 const t = new Twitch(client_id, secret)
 
-t.helix.games.getTopGames({}).then(console.log).catch()
+// t.helix.games.getTopGames({}).then(console.log).catch()
+
+let link = t.oauth.implicitUserAccessToken('http://localhost', [Scopes.ANALYTICS_READ_EXTENTSIONS, Scopes.BITS_READ])
+console.log(link)

@@ -1,17 +1,15 @@
 import {
 	Method,
 	webRequest } from "../util/webRequest"
-import { appAccessToken } from "../authentication/appAccessToken"
+import OAuth from "../authentication/OAuth"
 
 export default class ApiCalls
 {
-	CLIENT_ID: string;
-	SECRET: string;
+	private oauth: OAuth;
 
-	constructor(CLIENT_ID: string, SECRET: string)
+	constructor(oauth: OAuth)
 	{
-		this.CLIENT_ID = CLIENT_ID;
-		this.SECRET = SECRET;
+		this.oauth = oauth;
 	}
 
 	async apiCall(path: string, queryParams: any, bodyParams: any, method: Method): Promise<any>
@@ -30,8 +28,8 @@ export default class ApiCalls
 				reqPath,
 				JSON.stringify(bodyParams),
 				{
-					"Authorization": "Bearer " + await appAccessToken(this.CLIENT_ID, this.SECRET),
-					"Client-ID": this.CLIENT_ID,
+					"Authorization": "Bearer " + await this.oauth.appAccessToken(),
+					"Client-ID": this.oauth.CLIENT_ID,
 					"Content-Type": "application/json"
 				},
 				method

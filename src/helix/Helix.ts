@@ -1,16 +1,13 @@
+import OAuth from '../authentication/OAuth';
 import ApiCalls from './ApiCalls'
 
 export default class Helix
 {
-	// private CLIENT_ID: string;
-	// private SECRET: string;
 	private apiCalls: ApiCalls;
 
-	constructor(CLIENT_ID: string, SECRET: string)
+	constructor(oauth: OAuth)
 	{
-		// this.CLIENT_ID = CLIENT_ID;
-		// this.SECRET = SECRET;
-		this.apiCalls = new ApiCalls(CLIENT_ID, SECRET);
+		this.apiCalls = new ApiCalls(oauth);
 	}
 
 	ads = {
