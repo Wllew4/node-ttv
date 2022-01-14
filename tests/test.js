@@ -21,10 +21,10 @@ else
 
 const t = new Twitch(client_id, secret)
 
-// t.helix.ads.startCommercial( token, '139982308', 30)
+t.helix.ads.startCommercial(token, '139982308', 30)
 // t.helix.bits.getBitsLeaderboard(token).then(console.log).catch()
 // t.helix.channel_points.getCustomReward(token, '139982308', false).then(console.log).catch()
-t.helix.chat.getGlobalEmotes().then(console.log)
+// t.helix.chat.getGlobalEmotes().then(console.log)
 
 // t.helix.games.getTopGames({}).then(console.log).catch()
 
