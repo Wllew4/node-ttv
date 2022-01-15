@@ -13,6 +13,17 @@ import Games			from './resources/games'
 import Goals			from './resources/goals'
 import HypeTrain		from './resources/hypetrain'
 import Moderation		from './resources/moderation'
+import Music			from './resources/music'
+import Polls			from './resources/polls'
+import Predictions		from './resources/predictions'
+import Schedule			from './resources/schedule'
+import Search			from './resources/search'
+import Streams			from './resources/streams'
+import Subscriptions	from './resources/subscriptions'
+import Tags				from './resources/tags'
+import Teams			from './resources/teams'
+import Users			from './resources/users'
+import Videos			from './resources/videos'
 
 /**
  * Interact with Twitch.tv's Helix API.
@@ -35,6 +46,17 @@ export default class Helix
 	goals:			Goals
 	hypetrain:		HypeTrain
 	moderation:		Moderation
+	music:			Music
+	polls:			Polls
+	predictions:	Predictions
+	schedule:		Schedule
+	search:			Search
+	streams:		Streams
+	subscriptions:	Subscriptions
+	tags:			Tags
+	teams:			Teams
+	users:			Users
+	videos:			Videos
 
 	/**
 	 * Interact with Twitch.tv's Helix API.
@@ -59,92 +81,16 @@ export default class Helix
 		this.goals			= new Goals			(oauth)
 		this.hypetrain		= new HypeTrain		(oauth)
 		this.moderation		= new Moderation	(oauth)
-	}
-
-	search = {
-		searchCategories: async (queryParams: any) => {
-			return this.apiCalls.apiGet(await this.oauth.appAccessToken(), "/helix/search/categories", queryParams);
-		},
-		searchChannels: async (queryParams: any) => {
-			return this.apiCalls.apiGet(await this.oauth.appAccessToken(), "/helix/search/channels", queryParams);
-		}
-	}
-
-	streams = {
-		getStreamKey: async (queryParams: any) => {
-			return this.apiCalls.apiGet(await this.oauth.appAccessToken(), "/helix/streams/key", queryParams);
-		},
-		getStreams: async (queryParams: any) => {
-			return this.apiCalls.apiGet(await this.oauth.appAccessToken(), "/helix/streams", queryParams);
-		},
-		createStreamMarker: async (bodyParams: any) => {
-			return this.apiCalls.apiPost(await this.oauth.appAccessToken(), "/helix/streams/markers", {}, bodyParams);
-		},
-		getStreamMarkers: async (queryParams: any) => {
-			return this.apiCalls.apiGet(await this.oauth.appAccessToken(), "/helix/streams/markers", queryParams);
-		},
-		getChannelInformation: async (queryParams: any) => {
-			return this.apiCalls.apiGet(await this.oauth.appAccessToken(), "/helix/channels", queryParams);
-		},
-		modifyChannelInformation: async (queryParams: any, bodyParams: any) => {
-			return this.apiCalls.apiPatch(await this.oauth.appAccessToken(), "/helix/channels", queryParams, bodyParams);
-		}
-	}
-
-	subscriptions = {
-		getBroadcasterSubscriptions: async (queryParams: any) => {
-			return this.apiCalls.apiGet(await this.oauth.appAccessToken(), "/helix/subscriptions", queryParams);
-		}
-	}
-
-	tags = {
-		getAllStreamTags: async (queryParams: any) => {
-			return this.apiCalls.apiGet(await this.oauth.appAccessToken(), "/helix/tags/streams", queryParams);
-		},
-		getStreamTags: async (queryParams: any) => {
-			return this.apiCalls.apiGet(await this.oauth.appAccessToken(), "/helix/streams/tags", queryParams);
-		},
-		replaceStreamTags: async (queryParams: any, bodyParams: any) => {
-			return this.apiCalls.apiPut(await this.oauth.appAccessToken(), "/helix/streams/tags", queryParams, bodyParams);
-		}
-	}
-
-	users = {
-		createUserFollows: async (queryParams: any) => {
-			return this.apiCalls.apiPost(await this.oauth.appAccessToken(), "/helix/users/follows", queryParams, {});
-		},
-		deleteUserFollows: async (queryParams: any) => {
-			return this.apiCalls.apiDelete(await this.oauth.appAccessToken(), "/helix/users/follows", queryParams);
-		},
-		getUsers: async (queryParams: any) => {
-			return this.apiCalls.apiGet(await this.oauth.appAccessToken(), "/helix/users", queryParams);
-		},
-		getUsersFollows: async (queryParams: any) => {
-			return this.apiCalls.apiGet(await this.oauth.appAccessToken(), "/helix/users/follows", queryParams);
-		},
-		updateUser: async (queryParams: any) => {
-			return this.apiCalls.apiPut(await this.oauth.appAccessToken(), "/helix/users", queryParams, {});
-		},
-		getUserExtensions: async (queryParams: any) => {
-			return this.apiCalls.apiGet(await this.oauth.appAccessToken(), "/helix/users/extensions/list", queryParams);
-		},
-		getUserActiveExtensions: async (queryParams: any) => {
-			return this.apiCalls.apiGet(await this.oauth.appAccessToken(), "/helix/users/extensions", queryParams);
-		},
-		updateUserExtensions: async (bodyParams: any) => {
-			return this.apiCalls.apiPut(await this.oauth.appAccessToken(), "/helix/users", {}, bodyParams);
-		}
-	}
-
-	videos = {
-		getVideos: async (queryParams: any) => {
-			return this.apiCalls.apiGet(await this.oauth.appAccessToken(), "/helix/videos", queryParams);
-		}
-	}
-
-	webhooks = {
-		getWebhookSubscriptions: async (queryParams: any) => {
-			return this.apiCalls.apiGet(await this.oauth.appAccessToken(), "/helix/webhooks/subscriptions", queryParams);
-		}
+		this.music			= new Music			(oauth)
+		this.polls			= new Polls			(oauth)
+		this.predictions	= new Predictions	(oauth)
+		this.schedule		= new Schedule		(oauth)
+		this.search			= new Search		(oauth)
+		this.streams		= new Streams		(oauth)
+		this.subscriptions	= new Subscriptions (oauth)
+		this.tags			= new Tags			(oauth)
+		this.teams			= new Teams			(oauth)
+		this.users			= new Users			(oauth)
+		this.videos			= new Videos		(oauth)
 	}
 }

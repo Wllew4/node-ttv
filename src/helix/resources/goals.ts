@@ -2,10 +2,11 @@ import Resource from "../Resource";
 
 export default class Goals extends Resource
 {
-	async getCreatorGoals(
-		token: string,
-		broadcaster_id: string
-		): Promise<string>
+	async getCreatorGoals
+	(
+		token:			string,
+		broadcaster_id:	string
+	): Promise<string>
 	{
 		let queryParams = {
 			broadcaster_id

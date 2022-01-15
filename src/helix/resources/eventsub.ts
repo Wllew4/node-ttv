@@ -2,12 +2,13 @@ import Resource from "../Resource";
 
 export default class EventSub extends Resource
 {
-	async createEventSubSubscription(
-		token: string|null,
-		version: string,
-		condition: string,
-		transport: string
-		): Promise<string>
+	async createEventSubSubscription
+	(
+		token:		string|null,
+		version:	string,
+		condition:	string,
+		transport:	string
+	): Promise<string>
 	{
 		let bodyParams = {
 			version, condition, transport
@@ -19,10 +20,11 @@ export default class EventSub extends Resource
 		return this.apiCalls.apiPost(token, "/helix/chat/settings", {}, bodyParams);
 	}
 
-	async deleteEventSubSubscription(
-		token: string,
-		id: string
-		): Promise<string>
+	async deleteEventSubSubscription
+	(
+		token:	string,
+		id:		string
+	): Promise<string>
 	{
 		let queryParams = {
 			id
@@ -31,11 +33,12 @@ export default class EventSub extends Resource
 		return this.apiCalls.apiDelete(token, "/helix/eventsub/subscriptions", queryParams);
 	}
 
-	async getEventSubSubscriptions(
-		status?: string,
-		type?: string,
-		after?: string
-		): Promise<string>
+	async getEventSubSubscriptions
+	(
+		status?:	string,
+		type?:		string,
+		after?:		string
+	): Promise<string>
 	{
 		let queryParams = {
 			status, type, after

@@ -2,9 +2,7 @@ import Resource from "../Resource";
 
 export default class Chat extends Resource
 {
-	async getChannelEmotes(
-		broadcaster_id: string
-		): Promise<string>
+	async getChannelEmotes(broadcaster_id: string): Promise<string>
 	{
 		let queryParams = {
 			broadcaster_id
@@ -18,9 +16,7 @@ export default class Chat extends Resource
 		return this.apiCalls.apiGet(await this.oauth.appAccessToken(), "helix/chat/emotes/global", {});
 	}
 
-	async getEmoteSets(
-		emote_set_id: string
-		): Promise<string>
+	async getEmoteSets(emote_set_id: string): Promise<string>
 	{
 		let queryParams = {
 			emote_set_id
@@ -29,9 +25,7 @@ export default class Chat extends Resource
 		return this.apiCalls.apiGet(await this.oauth.appAccessToken(), "helix/chat/emotes/set", queryParams);
 	}
 
-	async getChannelChatBadges(
-		broadcaster_id: string
-		): Promise<string>
+	async getChannelChatBadges(broadcaster_id: string): Promise<string>
 	{
 		let queryParams = {
 			broadcaster_id
@@ -45,11 +39,12 @@ export default class Chat extends Resource
 			return this.apiCalls.apiGet(await this.oauth.appAccessToken(), "helix/chat/badges", {});
 	}
 
-	async getChatSettings(
-		token: string|null,
-		broadcaster_id: string,
-		moderator_id?: string
-		): Promise<string>
+	async getChatSettings
+	(
+		token:			string|null,
+		broadcaster_id:	string,
+		moderator_id?:	string
+	): Promise<string>
 	{
 		let queryParams = {
 			broadcaster_id, moderator_id
@@ -61,20 +56,21 @@ export default class Chat extends Resource
 		return this.apiCalls.apiGet(token, "helix/chat/settings", queryParams);
 	}
 
-	async updateChatSettings(
-		token: string,
-		broadcaster_id: string,
-		moderator_id: string,
-		emote_mode?: boolean,
-		follower_mode?: boolean,
-		follower_mode_duration?: number,
-		non_moderator_chat_delay?: boolean,
-		non_moderator_chat_delay_duration?: number,
-		slow_mode?: boolean,
-		slow_mode_wait_time?: number,
-		subscriber_mode?: boolean,
-		unique_chat_mode?: boolean
-		): Promise<string>
+	async updateChatSettings
+	(
+		token:								string,
+		broadcaster_id:						string,
+		moderator_id:						string,
+		emote_mode?:						boolean,
+		follower_mode?:						boolean,
+		follower_mode_duration?:			number,
+		non_moderator_chat_delay?:			boolean,
+		non_moderator_chat_delay_duration?:	number,
+		slow_mode?:							boolean,
+		slow_mode_wait_time?:				number,
+		subscriber_mode?:					boolean,
+		unique_chat_mode?:					boolean
+	): Promise<string>
 	{
 		let queryParams = {
 			broadcaster_id, moderator_id
