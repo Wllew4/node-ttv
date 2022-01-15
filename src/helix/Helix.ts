@@ -8,6 +8,11 @@ import Channel_Points	from './resources/channel_points'
 import Chat 			from './resources/chat'
 import Clips			from './resources/clips'
 import Entitlements		from './resources/entitlements'
+import EventSub			from './resources/eventsub'
+import Games			from './resources/games'
+import Goals			from './resources/goals'
+import HypeTrain		from './resources/hypetrain'
+import Moderation		from './resources/moderation'
 
 /**
  * Interact with Twitch.tv's Helix API.
@@ -25,6 +30,11 @@ export default class Helix
 	chat:			Chat
 	clips:			Clips
 	entitlements:	Entitlements
+	eventsub:		EventSub
+	games:			Games
+	goals:			Goals
+	hypetrain:		HypeTrain
+	moderation:		Moderation
 
 	/**
 	 * Interact with Twitch.tv's Helix API.
@@ -35,6 +45,7 @@ export default class Helix
 	{
 		this.oauth = oauth;
 
+		//	extensions resource not currently supported
 		this.ads 			= new Ads			(oauth)
 		this.analytics 		= new Analytics		(oauth)
 		this.bits			= new Bits			(oauth)
@@ -43,40 +54,11 @@ export default class Helix
 		this.chat			= new Chat			(oauth)
 		this.clips			= new Clips			(oauth)
 		this.entitlements	= new Entitlements	(oauth)
-		//	extensions not currently supported
-	}
-
-	games = {
-		getTopGames: async (queryParams: any) => {
-			return this.apiCalls.apiGet(await this.oauth.appAccessToken(), "/helix/games/top", queryParams);
-		},
-		getGames: async (queryParams: any) => {
-			return this.apiCalls.apiGet(await this.oauth.appAccessToken(), "/helix/games", queryParams);
-		}
-	}
-
-	hypeTrain = {
-		getHypeTrainEvents: async (queryParams: any) => {
-			return this.apiCalls.apiGet(await this.oauth.appAccessToken(), "/helix/hypetrain/events", queryParams);
-		}
-	}
-
-	moderation = {
-		checkAutoModStatus: async (queryParams: any, bodyParams: any) => {
-			return this.apiCalls.apiPost(await this.oauth.appAccessToken(), "/helix/moderation/enforcements/status", queryParams, bodyParams);
-		},
-		getBannedEvents: async (queryParams: any) => {
-			return this.apiCalls.apiGet(await this.oauth.appAccessToken(), "/helix/moderation/banned/events", queryParams);
-		},
-		getBannedUsers: async (queryParams: any) => {
-			return this.apiCalls.apiGet(await this.oauth.appAccessToken(), "/helix/moderation/banned", queryParams);
-		},
-		getModerators: async (queryParams: any) => {
-			return this.apiCalls.apiGet(await this.oauth.appAccessToken(), "/helix/moderation/moderators", queryParams);
-		},
-		getModeratorEvents: async (queryParams: any) => {
-			return this.apiCalls.apiGet(await this.oauth.appAccessToken(), "/helix/moderation/moderators/events", queryParams);
-		}
+		this.eventsub		= new EventSub		(oauth)
+		this.games			= new Games			(oauth)
+		this.goals			= new Goals			(oauth)
+		this.hypetrain		= new HypeTrain		(oauth)
+		this.moderation		= new Moderation	(oauth)
 	}
 
 	search = {
