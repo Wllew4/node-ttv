@@ -31,8 +31,6 @@ import Videos			from './resources/videos'
  */
 export default class Helix
 {
-	oauth: OAuth
-
 	ads:			Ads
 	analytics:		Analytics
 	bits:			Bits
@@ -65,8 +63,6 @@ export default class Helix
 	 */
 	constructor(oauth: OAuth)
 	{
-		this.oauth = oauth;
-
 		//	extensions resource not currently supported
 		this.ads 			= new Ads			(oauth)
 		this.analytics 		= new Analytics		(oauth)
