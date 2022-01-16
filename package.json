@@ -1,6 +1,6 @@
 {
   "name": "node-ttv",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "A Node.js wrapper for Twitch.tv's helix API.",
   "main": "dist/node-ttv.js",
   "scripts": {
