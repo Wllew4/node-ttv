@@ -1,8 +1,7 @@
 # node-ttv
 ![npm](https://img.shields.io/npm/v/node-ttv)
 ![npm bundle size](https://img.shields.io/bundlephobia/min/node-ttv?label=size)
-![GitHub Workflow Status](https://img.shields.io/github/workflow/status/Wllew4/node-ttv/helix)
-![GitHub](https://img.shields.io/github/license/Wllew4/node-ttv)
+![License](https://img.shields.io/github/license/Wllew4/node-ttv)
 
 A Node.js wrapper for Twitch.tv's API.
 
