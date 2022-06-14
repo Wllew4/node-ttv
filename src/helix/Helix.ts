@@ -16,6 +16,7 @@ import Moderation		from './resources/moderation'
 import Music			from './resources/music'
 import Polls			from './resources/polls'
 import Predictions		from './resources/predictions'
+import Raids			from './resources/raids'
 import Schedule			from './resources/schedule'
 import Search			from './resources/search'
 import Streams			from './resources/streams'
@@ -47,6 +48,7 @@ export default class Helix
 	music:			Music
 	polls:			Polls
 	predictions:	Predictions
+	raids:			Raids
 	schedule:		Schedule
 	search:			Search
 	streams:		Streams
@@ -80,6 +82,7 @@ export default class Helix
 		this.music			= new Music			(oauth)
 		this.polls			= new Polls			(oauth)
 		this.predictions	= new Predictions	(oauth)
+		this.raids			= new Raids			(oauth)
 		this.schedule		= new Schedule		(oauth)
 		this.search			= new Search		(oauth)
 		this.streams		= new Streams		(oauth)

@@ -1,5 +1,5 @@
 # node-ttv
-![npm](https://img.shields.io/npm/v/node-ttv)
+[![npm](https://img.shields.io/npm/v/node-ttv)]()
 ![npm bundle size](https://img.shields.io/bundlephobia/min/node-ttv?label=size)
 ![License](https://img.shields.io/github/license/Wllew4/node-ttv)
 
@@ -51,13 +51,11 @@ const myTwitchApplication = new Twitch(CLIENT_ID, SECRET);
 
 //	Implicit code flow
 let sendThisToUser = OAuth.implicitUserAccessToken(CLIENT_ID, REDIRECT_URL, [Scopes.CHANNEL_READ_REDEMPTIONS]);
-
-let orUser = myTwitchApplication.oauth.implicitUserAccessToken(REDIRECT_URL, [Scopes.CHANNEL_READ_REDEMPTIONS]);
+let orThis = myTwitchApplication.oauth.implicitUserAccessToken(REDIRECT_URL, [Scopes.CHANNEL_READ_REDEMPTIONS]);
 
 //	Authorization code flow
 let sendThisToUser = OAuth.authorizationUserAccessToken(CLIENT_ID, REDIRECT_URL, [Scopes.CHANNEL_READ_REDEMPTIONS]);
-
-let orUser = myTwitchApplication.oauth.authorizationUserAccessToken(REDIRECT_URL, [Scopes.CHANNEL_READ_REDEMPTIONS]);
+let orThis = myTwitchApplication.oauth.authorizationUserAccessToken(REDIRECT_URL, [Scopes.CHANNEL_READ_REDEMPTIONS]);
 ```
 
 ## Making authenticated requests:

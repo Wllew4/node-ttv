@@ -14,6 +14,7 @@ enum Scopes
 	CHANNEL_MANAGE_EXTENSIONS			= "channel:manage:extensions",
 	CHANNEL_MANAGE_POLLS				= "channel:manage:polls",
 	CHANNEL_MANAGE_PREDICTIONS			= "channel:manage:predictions",
+	CHANNEL_MANAGE_RAIDS				= "channel:manage:raids",
 	CHANNEL_MANAGE_REDEMPTION			= "channel:manage:redemptions",
 	CHANNEL_MANAGE_SCHEDULE				= "channel:manage:schedule",
 	CHANNEL_MANAGE_VIDEOS				= "channel:manage:videos",
