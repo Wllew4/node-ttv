@@ -1,5 +1,5 @@
 # node-ttv
-[![npm](https://img.shields.io/npm/v/node-ttv)]()
+[![npm](https://img.shields.io/npm/v/node-ttv)](https://www.npmjs.com/package/node-ttv)
 ![npm bundle size](https://img.shields.io/bundlephobia/min/node-ttv?label=size)
 ![License](https://img.shields.io/github/license/Wllew4/node-ttv)
 
