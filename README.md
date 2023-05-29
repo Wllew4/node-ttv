@@ -3,11 +3,9 @@
 ![npm bundle size](https://img.shields.io/bundlephobia/min/node-ttv?label=size)
 ![License](https://img.shields.io/github/license/Wllew4/node-ttv)
 
-A Node.js wrapper for Twitch.tv's API.
+A Node.js wrapper for Twitch.tv's API. This package adds a useful abstraction layer to make it easier for developers to interact with the API.
 
-This package adds a useful abstraction layer to make it easier for developers to interact with the API.
-
-Please note that versions 2.0.0 and later are NOT backwards compatible with earlier versions. There were significant structural overhauls made to this project. Node-ttv is much easier to use now, so depending on how deeply integrated this package is in your project, migrating may not be too difficult.
+Not actively maintained, please open an issue if you need me to add any missing functionality.
 
 # Getting Started
 ## Register your app
@@ -63,6 +61,3 @@ In this example, USER_ACCESS_TOKEN has been generated with `Scopes.CHANNEL_EDIT_
 ```js
 myTwitchApplication.ads.startCommercial(USER_ACCESS_TOKEN, '123456789', 30);
 ```
-
-# License
-Node-ttv is licensed under the MIT permissive license. You may use this package in your projects freely, and no warranty is provided. Read the provided LICENSE file for the complete license text.
